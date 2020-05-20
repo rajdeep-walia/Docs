@@ -27,6 +27,11 @@ apt-get install certbot python3-certbot-apache
 ```
 certbot --apache -d [YOUR DOMAIN]
 ```
+Copy paths of key and cert:
+```
+/etc/letsencrypt/live/[YOUR DOMAIN]/privkey.pem
+/etc/letsencrypt/live/[YOUR DOMAIN]/fullchain.pem
+```
 # Install lua and dependencies
 
 Enter in sudo user
