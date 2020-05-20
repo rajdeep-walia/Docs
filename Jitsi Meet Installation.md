@@ -231,7 +231,7 @@ AUTHBIND=yes
 
 Then, restart all services
 ```bash
-systemctl restart nginx prosody jicofo jitsi-videobridge2
+systemctl restart apache2 prosody jicofo jitsi-videobridge2
 ```
 
 
