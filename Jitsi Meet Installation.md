@@ -32,6 +32,7 @@ Copy paths of key and cert:
 /etc/letsencrypt/live/[YOUR DOMAIN]/privkey.pem
 /etc/letsencrypt/live/[YOUR DOMAIN]/fullchain.pem
 ```
+Jitsi meet will ask you to fill them while installing 
 # Install lua and dependencies
 
 Enter in sudo user
@@ -81,14 +82,13 @@ Enter in sudo user
 sudo su
 ```
 
-After reboot, run the folow script
-```bash
-cd &&
+After reboot, run the following commands:
+```
 wget -qO - https://download.jitsi.org/jitsi-key.gpg.key | sudo apt-key add - &&
 sh -c "echo 'deb https://download.jitsi.org stable/' > /etc/apt/sources.list.d/jitsi-stable.list" &&
-apt-get -y update &&
-apt-get install jitsi-meet -y &&
-apt-get install jitsi-meet-tokens -y
+apt update
+apt install jitsi-meet
+apt-get install jitsi-meet-tokens 
 ```
 # Open necessary ports
 
