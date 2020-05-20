@@ -1,6 +1,6 @@
 # Uninstall 
 
-apt remove prosody
+```apt remove prosody
 apt remove --auto-remove prosody
 apt purge prosody  
 apt purge apache2
@@ -8,6 +8,7 @@ apt purge jigasi jitsi-meet jitsi-meet-web-config jitsi-meet-prosody jitsi-meet-
 apt-get remove nginx nginx-common
 apt-get purge nginx nginx-common
 apt-get autoremove
+```
 
 # Install lua and dependencies
 
