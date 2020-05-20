@@ -1,4 +1,4 @@
-# uninstall 
+# Uninstall 
 
 apt remove prosody
 apt remove --auto-remove prosody
