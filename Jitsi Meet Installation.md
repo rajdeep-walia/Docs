@@ -108,7 +108,10 @@ ufw allow in 5222/tcp &&
 ufw allow in 5347/tcp &&
 ufw allow in 10000:20000/udp
 ```
-
+```
+rm /etc/apache2/sites-enabled/000-default-le-ssl.conf 
+service apache2 restart
+```
 # Config prosody
 
 Open `/etc/prosody/prosody.cfg.lua` and
