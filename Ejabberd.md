@@ -27,7 +27,6 @@ To compile ejabberd on a ‘Unix-like’ operating system, you need:
 ```
 apt install build-essential
 apt install libexpat-dev
-Libexpat 1.95 or higher
 Libyaml 0.1.4 or higher
 Erlang/OTP 19.3 or higher. We recommend using Erlang OTP 21.2.
 OpenSSL 1.0.0 or higher, for STARTTLS, SASL and SSL encryption.
