@@ -22,9 +22,9 @@ Copy paths of key and cert:
 ```
 We need to set them on ejabberd yml file. 
 
-Requirements
+# Pre Requirements
 To compile ejabberd on a ‘Unix-like’ operating system, you need:
-
+```
 GNU Make
 GCC
 Libexpat 1.95 or higher
@@ -34,3 +34,4 @@ OpenSSL 1.0.0 or higher, for STARTTLS, SASL and SSL encryption.
 Zlib 1.2.3 or higher, for Stream Compression support (XEP-0138). Optional.
 PAM library. Optional. For Pluggable Authentication Modules (PAM). See PAM Authentication section.
 ImageMagick’s Convert program and Ghostscript fonts. Optional. For CAPTCHA challenges. See section CAPTCHA.
+```
