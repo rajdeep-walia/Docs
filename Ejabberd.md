@@ -29,7 +29,7 @@ apt install build-essential
 apt install libexpat-dev
 apt install libyaml-dev
 apt install erlang
-OpenSSL 1.0.0 or higher, for STARTTLS, SASL and SSL encryption.
+apt install libssl-dev
 Zlib 1.2.3 or higher, for Stream Compression support (XEP-0138). Optional.
 PAM library. Optional. For Pluggable Authentication Modules (PAM). See PAM Authentication section.
 ImageMagick’s Convert program and Ghostscript fonts. Optional. For CAPTCHA challenges. See section CAPTCHA.
