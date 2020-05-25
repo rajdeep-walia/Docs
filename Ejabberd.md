@@ -31,6 +31,13 @@ apt install libyaml-dev
 apt install erlang
 apt install libssl-dev
 apt install zlib-bin
-PAM library. Optional. For Pluggable Authentication Modules (PAM). See PAM Authentication section.
-ImageMagick’s Convert program and Ghostscript fonts. Optional. For CAPTCHA challenges. See section CAPTCHA.
+apt install libpam0g-dev
+apt install imagemagick
 ```
+# Clone and build Ejabberd code
+git clone https://github.com/processone/ejabberd.git
+cd ejabberd
+./autogen.sh
+./configure --enable-user=root --enable-mysql --enable-new-sql-schema --prefix=/opt/ejabberd_mysql
+make
+make install
