@@ -28,7 +28,7 @@ To compile ejabberd on a ‘Unix-like’ operating system, you need:
 apt install build-essential
 apt install libexpat-dev
 apt install libyaml-dev
-Erlang/OTP 19.3 or higher. We recommend using Erlang OTP 21.2.
+apt install erlang
 OpenSSL 1.0.0 or higher, for STARTTLS, SASL and SSL encryption.
 Zlib 1.2.3 or higher, for Stream Compression support (XEP-0138). Optional.
 PAM library. Optional. For Pluggable Authentication Modules (PAM). See PAM Authentication section.
