@@ -30,7 +30,7 @@ apt install libexpat-dev
 apt install libyaml-dev
 apt install erlang
 apt install libssl-dev
-Zlib 1.2.3 or higher, for Stream Compression support (XEP-0138). Optional.
+apt install zlib-bin
 PAM library. Optional. For Pluggable Authentication Modules (PAM). See PAM Authentication section.
 ImageMagick’s Convert program and Ghostscript fonts. Optional. For CAPTCHA challenges. See section CAPTCHA.
 ```
