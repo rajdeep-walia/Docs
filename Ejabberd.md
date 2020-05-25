@@ -25,8 +25,8 @@ We need to set them on ejabberd yml file.
 # Pre Requirements
 To compile ejabberd on a ‘Unix-like’ operating system, you need:
 ```
-GNU Make
-GCC
+apt install build-essential
+
 Libexpat 1.95 or higher
 Libyaml 0.1.4 or higher
 Erlang/OTP 19.3 or higher. We recommend using Erlang OTP 21.2.
