@@ -30,7 +30,7 @@ apt install libexpat-dev
 apt install libyaml-dev
 apt install erlang
 apt install libssl-dev
-apt install zlib-bin
+apt install zlib1g-dev
 apt install libpam0g-dev
 apt install imagemagick
 ```
