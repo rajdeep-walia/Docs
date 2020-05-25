@@ -25,6 +25,7 @@ We need to set them on ejabberd yml file.
 # Pre Requirements
 To compile ejabberd on a ‘Unix-like’ operating system, you need:
 ```
+apt install automake
 apt install build-essential
 apt install libexpat-dev
 apt install libyaml-dev
