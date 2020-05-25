@@ -35,9 +35,11 @@ apt install libpam0g-dev
 apt install imagemagick
 ```
 # Clone and build Ejabberd code
+```
 git clone https://github.com/processone/ejabberd.git
 cd ejabberd
 ./autogen.sh
 ./configure --enable-user=root --enable-mysql --enable-new-sql-schema --prefix=/opt/ejabberd_mysql
 make
 make install
+```
