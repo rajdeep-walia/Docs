@@ -45,5 +45,7 @@ make
 make install
 ```
 # Check if its working 
+```
 /opt/ejabberd_mysql/sbin ejabberdctl start
 /opt/ejabberd_mysql/sbin ejabberdctl status
+```
