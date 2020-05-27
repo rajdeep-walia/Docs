@@ -46,4 +46,6 @@ _build/prod/rel/mongooseim/mongooseimctl start
 _build/prod/rel/mongooseim/mongooseimctl status
 ```
 # Stop mongooseim
+```
 _build/prod/rel/mongooseim/mongooseimctl stop
+```
