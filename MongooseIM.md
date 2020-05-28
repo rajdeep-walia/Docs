@@ -28,6 +28,9 @@ To compile ejabberd on a ‘Unix-like’ operating system, you need:
 apt install make
 apt install gcc
 apt install g++
+wget -O- https://packages.erlang-solutions.com/ubuntu/erlang_solutions.asc | sudo apt-key add -
+echo "deb https://packages.erlang-solutions.com/ubuntu bionic contrib" | sudo tee /etc/apt/sources.list.d/rabbitmq.list
+apt update
 apt install erlang
 apt install libssl-dev
 apt install unixodbc-dev
