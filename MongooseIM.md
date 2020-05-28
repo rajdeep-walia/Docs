@@ -33,7 +33,7 @@ apt install libssl-dev
 apt install unixodbc-dev
 apt install zlibig-dav
 ```
-# Clone and build Ejabberd code
+# Clone and build MongooseIM code
 ```
 git clone https://github.com/esl/MongooseIM.git
 cd MongooseIM
