@@ -29,8 +29,8 @@ apt install make
 apt install gcc
 apt install g++
 apt install erlang
-apt install libssl-dav
-apt install unixodbc-dav
+apt install libssl-dev
+apt install unixodbc-dev
 apt install zlibig-dav
 ```
 # Clone and build Ejabberd code
