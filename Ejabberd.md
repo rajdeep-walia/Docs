@@ -49,3 +49,7 @@ make install
 /opt/ejabberd_mysql/sbin/ejabberdctl start
 /opt/ejabberd_mysql/sbin/ejabberdctl status
 ```
+# Stop Ejabberd 
+```
+/opt/ejabberd_mysql/sbin/ejabberdctl stop
+```
