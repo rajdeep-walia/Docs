@@ -45,10 +45,10 @@ make rel
 ```
 # Check if its working 
 ```
-_build/prod/rel/mongooseim/mongooseimctl start
-_build/prod/rel/mongooseim/mongooseimctl status
+_build/prod/rel/mongooseim/bin/mongooseimctl start
+_build/prod/rel/mongooseim/bin/mongooseimctl status
 ```
 # Stop mongooseim
 ```
-_build/prod/rel/mongooseim/mongooseimctl stop
+_build/prod/rel/mongooseim/bin/mongooseimctl stop
 ```
