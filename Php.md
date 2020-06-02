@@ -3,6 +3,8 @@
 apt update 
 apt install apache2
 ```
+# Apache status 
+service apache2 status 
 
 # Install PHP
 ```
