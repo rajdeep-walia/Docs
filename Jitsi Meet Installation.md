@@ -304,7 +304,7 @@ server {
     ...
 }
 
-#Install Jitsi-meet using React
+##Install Jitsi-meet using React
 
 
 git clone https://github.com/jitsi/jitsi-meet
