@@ -73,8 +73,8 @@ sed -i 's|$(PREFIX)/include|/usr/include/lua5.2|g' Makefile &&
 luarocks make &&
 luarocks install luajwtjitsi &&
 cd &&
-wget https://prosody.im/files/prosody-debian-packages.key -O- | sudo apt-key add - &&
-echo deb http://packages.prosody.im/debian $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list &&
+wget https://prosody.im/files/prosody-debian-packages.key -O- |  apt-key add - &&
+echo deb http://packages.prosody.im/debian $(lsb_release -sc) main |  tee -a /etc/apt/sources.list &&
 apt-get update -y &&
 apt-get upgrade -y &&
 apt-get install prosody -y &&
