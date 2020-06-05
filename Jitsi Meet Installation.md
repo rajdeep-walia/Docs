@@ -280,42 +280,12 @@ tail -f -n 350 /var/log/jitsi/jvb.log
 ```bash
 curl -sL https://deb.nodesource.com/setup_12.x | sudo bash - &&
 apt-get install nodejs -y
+
 ```
 
-Clone your repository,
+## Install Jitsi-meet using React
 
-after clone run 
-```bash
-sudo npm i &&
-make
 ```
-
-After installation, setup Nginx in `/etc/nginx/sites-available/<host>.conf`
-
-```bash
-server {
-    ...
-    location ^~ /.well-known/acme-challenge/ {
-        root         /app/jitsi-meet;
-    }
-    ....
-}
-
-server {
-    ...
-    root /app/jitsi-meet;
-    ...
-    location ~ ^/(libs|css|static|images|fonts|lang|sounds|connection_optimization|.well-known)/(.*)$
-    {
-        add_header 'Access-Control-Allow-Origin' '*';
-        alias /app/jitsi-meet/$1/$2;
-    }
-    ...
-}
-
-##Install Jitsi-meet using React
-
-
 git clone https://github.com/jitsi/jitsi-meet
 
 git checkout  532dadb245c749f93e3c9ded8e66f17196ced15b
@@ -325,6 +295,5 @@ npm install or npm i
 make dev for localhost
 
 make for create build on live
-
 
 ```
