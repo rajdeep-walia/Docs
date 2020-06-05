@@ -151,7 +151,7 @@ Include "conf.d/*.cfg.lua"
 
 ### Setup issuers and audiences 
 
-Open `/etc/prosody/conf.avail/<host>.cfg.lua`
+Open `/etc/prosody/conf.avail/[YOUR DOMAIN].cfg.lua`
 
 and add above lines with your issuers and audiences
 
