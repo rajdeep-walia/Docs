@@ -243,6 +243,14 @@ Then, restart all services
 systemctl restart apache2 prosody jicofo jitsi-videobridge2
 ```
 
+# Setup jigasi for sip call
+Be ready with sip username and password 
+```
+apt install jigasi
+vi /etc/jitsi/jigasi/sip-communicator.properties
+
+```
+
 
 # Helpers
 
