@@ -9,7 +9,16 @@ apt-get remove nginx nginx-common
 apt-get purge nginx nginx-common
 apt-get autoremove
 ```
-
+# Set Host name 
+```
+hostnamectl set-hostname [YOUR DOMAIN]
+vi /etc/hosts
+127.0.0.1  [YOUR DOMAIN]
+ls -l /etc/cloud/cloud.cfg
+vi /etc/cloud/cloud.cfg
+preserve_hostname: true
+hostnamectl
+```
 # Install Apache2 
 ```
 apt update 
