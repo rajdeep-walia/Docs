@@ -290,9 +290,10 @@ git clone https://github.com/jitsi/jitsi-meet
 
 git checkout  532dadb245c749f93e3c9ded8e66f17196ced15b
 
-git checkout master 
 
 npm install or npm i
+
+git checkout master 
 
 make dev for localhost
 
