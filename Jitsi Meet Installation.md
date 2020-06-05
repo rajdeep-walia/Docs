@@ -294,11 +294,11 @@ npm install or npm i
 
 git checkout master 
 ```
-For localhost
+To create build on localhost
 ```
 make dev 
 ```
-For create build on live
+To create build on live
 ```
 make 
 ```
