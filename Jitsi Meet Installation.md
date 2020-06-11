@@ -247,10 +247,18 @@ systemctl restart apache2 prosody jicofo jitsi-videobridge2
 Be ready with sip username and password 
 ```
 apt install jigasi
-vi /etc/jitsi/jigasi/sip-communicator.properties
-
 ```
-
+vi /etc/jitsi/jigasi/sip-communicator.properties and add
+```
+net.java.sip.communicator.impl.protocol.sip.SKIP_REINVITE_ON_FOCUS_CHANGE_PROP=true
+net.java.sip.communicator.impl.protocol.sip.acc1403273890647.JITSI_MEET_ROOM_HEADER_NAME=X-Jitsi-Conference-Room
+```
+Also Add
+```
+org.jitsi.jigasi.xmpp.acc.USER_ID=jigasi@auth.[YOUR DOMAIN]
+org.jitsi.jigasi.xmpp.acc.PASS=[Password]
+org.jitsi.jigasi.xmpp.acc.ANONYMOUS_AUTH=false
+```
 
 # Helpers
 
