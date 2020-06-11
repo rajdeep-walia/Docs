@@ -263,6 +263,11 @@ Register user :
 ```
 prosodyctl adduser jigasi@auth.[Your Domain]
 ```
+vi /etc/jitsi/meet/[YOUR DOMAIN]-config.js and enable
+```
+dialInNumbersUrl: '[Your numbers to be enabled]',
+dialInConfCodeUrl: 'https://jitsi-api.jitsi.net/conferenceMapper', 
+```
 # Helpers
 
 Restart all services
