@@ -259,7 +259,10 @@ org.jitsi.jigasi.xmpp.acc.USER_ID=jigasi@auth.[YOUR DOMAIN]
 org.jitsi.jigasi.xmpp.acc.PASS=[Password]
 org.jitsi.jigasi.xmpp.acc.ANONYMOUS_AUTH=false
 ```
-
+Register user :
+```
+prosodyctl adduser jigasi@auth.[Your Domain]
+```
 # Helpers
 
 Restart all services
