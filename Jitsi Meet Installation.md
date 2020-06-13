@@ -120,6 +120,7 @@ ufw allow in 10000:20000/udp
 ```
 ```
 rm /etc/apache2/sites-enabled/000-default-le-ssl.conf 
+rm /etc/apache2/sites-enabled/000-default.conf
 service apache2 restart
 ```
 # Config prosody
