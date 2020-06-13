@@ -186,7 +186,7 @@ Component "conference.jitmeet.example.com" "muc"
 
 ### Setup guest domain
 ```
-VirtualHost "guest.jitmeet.example.com"
+VirtualHost "guest.[YOUR Domain]"
     authentication = "token";
     app_id = "example_app_id";
     app_secret = "example_app_secret";
