@@ -201,7 +201,7 @@ var config = {
     hosts: {
         ... 
         // When using authentication, domain for guest users.
-        anonymousdomain: 'guest.jitmeet.example.com',
+        anonymousdomain: 'guest.[YOUR DOMAIN]',
         ...
     },
     ...
@@ -212,14 +212,14 @@ var config = {
 
 ### Edit jicofo sip-communicator in `/etc/jitsi/jicofo/sip-communicator.properties`
 ```
-org.jitsi.jicofo.auth.URL=XMPP:jitmeet.example.com
+org.jitsi.jicofo.auth.URL=XMPP:[YOUR DOMAIN]
 org.jitsi.jicofo.auth.DISABLE_AUTOLOGIN=true
 ```
 
 ### Edit jicofo config in `/etc/jitsi/jicofo/config`
 SET the follow configs
 ```
-JICOFO_HOST=jitmeet.example.com
+JICOFO_HOST=[YOUR DOMAIN]
 ```
 
 ### And edit videobridge config in `/etc/jitsi/videobridge/config`
@@ -230,7 +230,7 @@ JVB_HOST=
 ```
 TO
 ```
-JVB_HOST=jitmeet.example.com
+JVB_HOST=[YOUR DOMAIN]
 ```
 
 And add after `JAVA_SYS_PROPS`
