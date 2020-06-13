@@ -54,12 +54,13 @@ Run the follow script to install lua and her dependencies, and prosody with fixe
 After finish, VM will be restarted
 ```bash
 cd &&
-apt-get update -y &&
-apt-get install gcc -y &&
-apt-get install unzip -y &&
-apt-get install lua5.2 -y &&
-apt-get install liblua5.2 -y &&
-apt-get install luarocks -y &&
+apt update -y &&
+apt install git -y &&
+apt install gcc -y &&
+apt install unzip -y &&
+apt install lua5.2 -y &&
+apt install liblua5.2 -y &&
+apt install luarocks -y &&
 luarocks install basexx &&
 apt-get install libssl1.0-dev -y &&
 luarocks install luacrypto &&
