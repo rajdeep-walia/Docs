@@ -1,3 +1,5 @@
+# This Document only for UBUNTU 18.04
+
 # Uninstall 
 
 ```apt remove prosody
