@@ -6,10 +6,10 @@
 apt remove --auto-remove prosody
 apt purge prosody  
 apt purge apache2
-apt-get remove nginx nginx-common
-apt-get purge nginx nginx-common
+apt remove nginx nginx-common
+apt purge nginx nginx-common
 apt purge jigasi jitsi-meet jitsi-meet-web-config jitsi-meet-prosody jitsi-meet-turnserver jitsi-meet-web jicofo jitsi-videobridge2
-apt-get autoremove
+apt autoremove
 ```
 # Set Host name 
 ```
@@ -32,7 +32,7 @@ apt install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
 apt update
-apt-get install certbot python3-certbot-apache
+apt install certbot python3-certbot-apache
 ```
 # Generate certs 
 ```
