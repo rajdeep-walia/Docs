@@ -9,7 +9,7 @@ apt install software-properties-common
 add-apt-repository universe
 add-apt-repository ppa:certbot/certbot
 apt update
-apt-get install certbot python3-certbot-apache
+apt install certbot python3-certbot-apache
 ```
 # Generate certs 
 ```
