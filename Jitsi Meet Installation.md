@@ -331,3 +331,87 @@ To create build on live
 make 
 ```
 
+# Installing MySQL Client And Lua-DBI-SQL
+
+For Installing MySQL Client 
+
+```
+apt-get update
+apt install mysql-client-core-5.7 
+
+```
+
+Login to MySQL
+
+```
+mysql -u Database_Username -h Host_Name -p
+
+```
+
+Create a Database for Prosody and Exit.
+
+
+
+For Installing Lua-DBI-SQL
+
+```
+apt-get update
+apt install lua-dbi-common lua-dbi-mysql
+
+```
+
+## Configuring MySQL In Prosody 
+
+Edit `/etc/prosody/prosody.cfg.lua`
+
+```
+ vi /etc/prosody/prosody.cfg.lua 
+ 
+```
+
+Uncomment `"mam"; -- Store messages in an archive and allow users to access it` under ` modules_enabled = { `
+
+```
+modules_enabled = {
+.
+-- Nice to have
+.
+"mam"; -- Store messages in an archive and allow users to access it
+.
+.
+```
+
+# Changing stoarge location
+
+search for `storage = "internal"` in `/etc/prosody/prosody.cfg.lua`
+
+Change 
+
+`storage = "internal"`
+
+To 
+
+`storage = "sql"`
+
+Now, Uncomment `sql = { driver = "MySQL", database = "Database_Name", username = "Database_Username", password = "Database_Password", host = "Host_Name" }`
+
+
+```
+storage = "sql" -- Default is "internal"
+
+-- For the "sql" backend, you can uncomment *one* of the below to configure:
+--sql = { driver = "SQLite3", database = "prosody.sqlite" } -- Default. 'database' is the filename.
+sql = { driver = "MySQL", database = "Database_Name", username = "Database_Username", password = "Databas_Password", host = "Host_Name" 
+--sql = { driver = "PostgreSQL", database = "prosody", username = "prosody", password = "secret", host = "localhost" }
+
+```
+Finally exit editing mode and restart prosody.
+
+```
+systemctl restart  prosody
+
+```
+
+
+
+
