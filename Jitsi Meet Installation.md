@@ -331,3 +331,74 @@ To create build on live
 make 
 ```
 
+## Installing MySQL Client And Lua-DBI-MySQL
+
+For Installing MySQL CLient 
+
+```
+apt install mysql-client-core-5.7  
+
+```
+
+Login into MySQL
+
+```
+ mysql -u [Database_Username] -h [hostname] -p
+ 
+```
+
+For Installing Lua-DBI-MySQL
+
+```
+
+apt install lua-dbi-common lua-dbi-mysq
+
+```
+
+# Configuring Prosody
+
+Edit `/etc/prosody/prosody.cfg.lua`
+
+Uncomment, ` "mam"; -- Store messages in an archive and allow users to access it ` under `modules_enabled = {`
+
+```
+
+modules_enabled = {
+...
+ -- Nice to have
+ ...
+ "mam"; -- Store messages in an archive and allow users to access it
+ ...
+ 
+```
+
+Changing Storage location
+
+```
+
+storage = "internal"
+
+```
+
+To
+
+```
+
+storage = "sql" 
+
+```
+
+Uncomment ` sql = { driver = "MySQL", database = "[DatabaseName]", username = "[DatabaseUsername]", password = "[DatabasePassword]", host = "[Hostname]" } `
+
+
+Finally exit the editor and restart services.
+
+```
+
+systemctl restart apache2 prosody jicofo jitsi-videobridge2
+
+````
+
+
+
+
