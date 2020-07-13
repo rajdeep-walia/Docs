@@ -351,7 +351,7 @@ For Installing Lua-DBI-MySQL
 
 ```
 
-apt install lua-dbi-common lua-dbi-mysq
+apt install lua-dbi-common lua-dbi-mysql
 
 ```
 
