@@ -357,7 +357,7 @@ apt install lua-dbi-common lua-dbi-mysql
 
 # Configuring Prosody with mysql
 
-Edit `/etc/prosody/conf.avail/[YOUR DOMAIN].cfg.lua`
+Edit `/etc/prosody/prosody.cfg.lua`
 
 Uncomment, ` "mam"; -- Store messages in an archive and allow users to access it ` under `modules_enabled = {`
 
@@ -399,7 +399,7 @@ prosodyctl adduser focus@auth.meet.keycommapp.com
 prosodyctl adduser jigasi@auth.meet.keycommapp.com (if enabled)
 ```
 
-Open `/etc/prosody/prosody.cfg.lua`
+Open `/etc/prosody/conf.avail/[YOUR DOMAIN].cfg.lua`
 and add mod for conference component 
 
 ```
