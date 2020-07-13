@@ -394,9 +394,9 @@ Uncomment ` sql = { driver = "MySQL", database = "[DatabaseName]", username = "[
 Add users as per config 
 
 ```
-prosodyctl adduser jvb@auth.meet.keycommapp.com
-prosodyctl adduser focus@auth.meet.keycommapp.com
-prosodyctl adduser jigasi@auth.meet.keycommapp.com (if enabled)
+prosodyctl adduser jvb@auth.[YOUR DOMAIN]
+prosodyctl adduser focus@auth.[YOUR DOMAIN]
+prosodyctl adduser jigasi@auth.[YOUR DOMAIN] (if enabled)
 ```
 
 Open `/etc/prosody/conf.avail/[YOUR DOMAIN].cfg.lua`
