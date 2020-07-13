@@ -391,6 +391,16 @@ storage = "sql"
 Uncomment ` sql = { driver = "MySQL", database = "[DatabaseName]", username = "[DatabaseUsername]", password = "[DatabasePassword]", host = "[Hostname]" } `
 
 
+# Add users as per config 
+
+prosodyctl adduser jvb@auth.meet.keycommapp.com
+prosodyctl adduser focus@auth.meet.keycommapp.com
+prosodyctl adduser jigasi@auth.meet.keycommapp.com (if enabled)
+
+Open `/etc/prosody/prosody.cfg.lua`
+add mod for conference component 
+muc_mam
+
 Finally exit the editor and restart services.
 
 ```
