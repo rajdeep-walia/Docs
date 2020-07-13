@@ -355,7 +355,7 @@ apt install lua-dbi-common lua-dbi-mysql
 
 ```
 
-# Configuring Prosody
+# Configuring Prosody with mysql
 
 Edit `/etc/prosody/prosody.cfg.lua`
 
