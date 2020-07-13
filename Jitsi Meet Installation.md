@@ -357,7 +357,7 @@ apt install lua-dbi-common lua-dbi-mysql
 
 # Configuring Prosody with mysql
 
-Edit `/etc/prosody/prosody.cfg.lua`
+Edit `/etc/prosody/conf.avail/[YOUR DOMAIN].cfg.lua`
 
 Uncomment, ` "mam"; -- Store messages in an archive and allow users to access it ` under `modules_enabled = {`
 
