@@ -413,7 +413,7 @@ systemctl restart apache2 prosody jicofo jitsi-videobridge2
 
 ````
 
-### Jibri Instalation & Configuration
+# Jibri Instalation & Configuration
 
 For jibri instalation we would require a seprate server with minimum 2 CPUs & 4 GB RAM, and good storage space for recordings.
 
