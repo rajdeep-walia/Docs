@@ -413,6 +413,230 @@ systemctl restart apache2 prosody jicofo jitsi-videobridge2
 
 ````
 
+### Jibri Instalation & Configuration
+
+For jibri instalation we would require a seprate server with minimum 2 CPUs & 4 GB RAM, and good storage space for recordings.
 
 
+## Jibri Instalation 
+
+Check if the server's Operating System is using a Generic Kernel or not
+
+```
+uname -r
+```
+
+If its not using a generic kernel then , you have to change the Kernel to Generic.
+
+# Changing Kernel
+
+Edit `/etc/default/grub `
+
+Change 
+
+```
+GRUB_DEFAULT="..."
+```
+to 
+
+```
+GRUB_DEFAULT="1>4"
+```
+
+Exit the edit mode and update GRUB.
+
+```
+ update-grub
+ reboot
+```
+
+Installing Generic Kernel
+
+```
+apt update
+apt install linux-image-extra-virtual ffmpeg curl unzip software-properties-common
+```
+
+Removing Old Kernel
+
+For getting Kernel info
+
+```
+grep -A200 submenu /boot/grub/grub.cfg | grep menuentry
+```
+
+For Removing Old Kernel 
+
+```
+apt remove [Old-Kernel-Name] [Old-Kernel-Recovery-Name] 
+systemctl reboot
+```
+
+# Installing Jibri 
+
+Installing Sound Modules 
+
+```
+echo "snd_aloop" >> /etc/modules
+modprobe snd_aloop 
+```
+For checking if module is installed or not 
+
+```
+lsmod | grep snd_aloop
+```
+
+Installing Additional Packages
+
+```
+curl -sS -o - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
+echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chromewget -N 
+apt update
+apt install google-chrome-stable
+CHROME_DRIVER_VERSION=`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`
+wget -N http://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip -P ~/
+unzip ~/chromedriver_linux64.zip -d ~/
+rm ~/chromedriver_linux64.zip
+mv -f ~/chromedriver /usr/local/bin/chromedriver
+chmod 0755 /usr/local/bin/chromedriver
+mkdir -p /etc/opt/chrome/policies/managed
+echo '{ "CommandLineFlagSecurityWarningsEnabled": false }' >>/etc/opt/chrome/policies/managed/managed_policies.json
+add-apt-repository ppa:mc3man/trusty-media
+wget -qO - https://download.jitsi.org/jitsi-key.gpg.key | sudo apt-key add -
+sh -c "echo 'deb https://download.jitsi.org stable/' > /etc/apt/sources.list.d/jitsi-stable.list"
+```
+
+Installing Jibri 
+
+```
+apt update
+apt install jibri
+```
+
+# Configuring Jibri
+
+```
+usermod -aG adm,audio,video,plugdev jibri
+```
+
+Giving Path for Recordings
+
+```
+mkdir /recordings
+chown jibri:jibri /recordings
+```
+
+Edit ` /etc/jitsi/jibri/config.json `
+
+```
+"recording_directory": "[path for recordings directory]",
+"xmpp_server_hosts": [
+"[YOUR DOMAIN]"
+],
+"xmpp_domain": "[YOUR DOMAIN]",
+"control_login": {
+"domain": "auth.[YOUR DOMAIN]",
+"username": "[jibri_username]",
+"password": "[jibri_password]"
+},
+"control_muc": {
+"domain": "internal.auth.[YOUR DOMAIN]",
+"room_name": "JibriBrewery",
+"nickname": "jibri"
+},
+"call_login": {
+"domain": "recorder.[YOUR DOMAIN]",
+"username": "[Recorder_Username]",
+"password": "[Recorder_password]"
+}, 
+
+```
+
+Jibri only works on Java 8
+
+Java 8 Configuration
+
+```
+wget -O - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | sudo apt-key add -
+add-apt-repository https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
+apt update
+apt install adoptopenjdk-8-hotspot
+```
+Edit `/opt/jitsi/jibri/launch.sh` , replace `java` with `/usr/lib/jvm/adoptopenjdk-8-hotspot-amd64/bin/java`
+
+Finally,
+
+```
+systemctl enable --now jibri
+systemctl restart jibri
+```
+
+## Jitsi Configuration ( On Jitsi Server )
+
+Edit `/etc/prosody/conf.avail/[YOUR DOMAIN].cfg.lua `
+
+Add ` muc_mam `
+
+```
+Component "conference.[YOUR DOMAIN]" "muc"
+modules_enabled = { .
+                    .
+                    "muc_mam"
+                    } 
+```
+
+Add ` muc_room_cache_size = 1000 ` 
+
+```
+Component "internal.auth.[YOUR DOMAIN]" "muc"
+modules_enabled = {
+"ping";
+}
+storage = "internal"
+muc_room_cache_size = 1000 
+```
+
+Add a new `VirtualHost` for Recorder
+
+```
+VirtualHost "recorder.[YOUR DOMAIN]"
+modules_enabled = {
+"ping";
+}
+authentication = "internal_plain"
+```
+Save and Exit
+
+Create two new accounts for Jibri to use ( For Recorder and Jibri )
+
+```
+prosodyctl register [Jibri_Username] auth.[YOUR DOMAIN][Jibri_Password]
+prosodyctl register [Recorder_Username] recorder.[YOUR DOMAIN][Recorder_Password]
+```
+
+Edit `/etc/jitsi/jicofo/sip-communicator.properties`, and Add
+
+```
+org.jitsi.jicofo.jibri.BREWERY=JibriBrewery@internal.auth.[YOUR DOMAIN]
+org.jitsi.jicofo.jibri.PENDING_TIMEOUT=90
+```
+
+Edit ` /etc/jitsi/meet/[YOUR DOMAIN]-config.js`
+
+Change and Uncomment ` --fileRecordingsEnabled: false `
+                  To ` fileRecordingsEnabled: true, `
+                  
+Change and Uncomment ` --liveStreamingEnabled: false `
+                  To ` liveStreamingEnabled: true, `
+                  
+Add `hiddenDomain: 'recorder.[YOUR DOMAIN]',`
+
+Save and Exit
+
+Finally Restart All Services
+
+```
+systemctl restart prosody jicofo jitsi-videobridge2 jigasi
+
+```
 
