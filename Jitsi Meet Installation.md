@@ -640,3 +640,68 @@ systemctl restart prosody jicofo jitsi-videobridge2 jigasi
 
 ```
 
+# Load Balancing
+
+## Videobridge
+
+### Prerequisite:
+
+Server OS - ubuntu 18.04 | Ports - 443/tcp , 4443/tcp , 10000:20000/udp
+
+### Installing Videobridge on Videobridge Server
+
+Installing Videobridge
+
+```
+echo 'deb https://download.jitsi.org stable/' >> /etc/apt/sources.list.d/jitsi-stable.list
+wget -qO -  https://download.jitsi.org/jitsi-key.gpg.key | apt-key add -
+apt update
+apt install jitsi-videobridge2
+```
+
+### Configuring Videobridge
+
+Edit `/etc/jitsi/videobridge/config`
+
+Change `JVB_HOST=`
+To `JVB_HOST=[hostname]`
+
+Change `JVB_SECRET=xyz123`
+To `JVB_SECRET=[JVB_Jitsi_Server_Secret]`
+
+Find `[JVB_Jitsi_Server_Secret]` in `/etc/jitsi/videobridge/config` on jitsi server.
+
+Add `AUTHBIND=yes` at the end of the file.
+
+Save & Exit
+
+Edit `/etc/jitsi/videobridge/sip-communicator.properties`
+
+Change `org.jitsi.videobridge.xmpp.user.shard.HOSTNAME=localhost`
+To `org.jitsi.videobridge.xmpp.user.shard.HOSTNAME=[Hostname]`
+
+Change `org.jitsi.videobridge.xmpp.user.shard.PASSWORD=xyz123`
+To `org.jitsi.videobridge.xmpp.user.shard.PASSWORD=[JVB_Jitsi_Server_Secret]`
+
+Find `[JVB_Jitsi_Server_Secret]` in `/etc/jitsi/videobridge/config` on jitsi server.
+
+Add `org.jitsi.videobridge.xmpp.user.shard.DISABLE_CERTIFICATE_VERIFICATION=true`
+
+Save & Exit
+
+#### Restarting Videobridge
+
+```
+systemctl restart jitsi-videobridge2
+```
+#### Videobridge Status
+
+```
+systemctl status jitsi-videobridge2
+```
+
+#### Videobridge Logs
+
+```
+tail -f /var/log/jitsi/jvb.log
+```
