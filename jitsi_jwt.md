@@ -57,7 +57,7 @@ $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
 
 $time = strtotime(' +1 day');
 // Create token payload as a JSON string
-$payload = json_encode(['aud' => $AUD,"iss"=>$ISS,"sub"=>$HOST,"room"=>$MEETING_ID,"exp"=>$time]);
+$payload = json_encode(['aud' => $AUD,"iss"=>$ISS,"sub"=>$HOST,"room"=>$meeting_id,"exp"=>$time]);
 
 // Encode Header to Base64Url String
 $base64UrlHeader = str_replace(['+', '/', '='], ['-', '_', ''], base64_encode($header));
