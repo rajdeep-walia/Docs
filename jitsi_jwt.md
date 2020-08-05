@@ -1,13 +1,13 @@
 # Example Token
 
-```Headers (using RS256 public key validation)
+## Headers
+```
 {
-  "kid": "jitsi/custom_key_name",
-  "typ": "JWT",
-  "alg": "RS256"
+  "alg": "HS256",
+  "typ": "JWT"
 }
 ```
-# Payload
+## Payload
 ```
 {
   "context": {
