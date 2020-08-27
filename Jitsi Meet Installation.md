@@ -318,7 +318,6 @@ git clone https://github.com/jitsi/jitsi-meet
 
 npm install or npm i
 
-git checkout master 
 ```
 To create build on localhost
 ```
