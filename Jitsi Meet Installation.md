@@ -56,13 +56,12 @@ Run the follow script to install lua and her dependencies, and prosody with fixe
 After finish, VM will be restarted
 ```bash
 cd &&
-apt update -y &&
-apt install git -y &&
-apt install gcc -y &&
-apt install unzip -y &&
-apt install lua5.2 -y &&
-apt install liblua5.2 -y &&
-apt install luarocks -y &&
+apt-get update -y &&
+apt-get install gcc -y &&
+apt-get install unzip -y &&
+apt-get install lua5.2 -y &&
+apt-get install liblua5.2 -y &&
+apt-get install luarocks -y &&
 luarocks install basexx &&
 apt-get install libssl1.0-dev -y &&
 luarocks install luacrypto &&
@@ -76,8 +75,8 @@ sed -i 's|$(PREFIX)/include|/usr/include/lua5.2|g' Makefile &&
 luarocks make &&
 luarocks install luajwtjitsi &&
 cd &&
-wget https://prosody.im/files/prosody-debian-packages.key -O- |  apt-key add - &&
-echo deb http://packages.prosody.im/debian $(lsb_release -sc) main |  tee -a /etc/apt/sources.list &&
+wget https://prosody.im/files/prosody-debian-packages.key -O- | sudo apt-key add - &&
+echo deb http://packages.prosody.im/debian $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list &&
 apt-get update -y &&
 apt-get upgrade -y &&
 apt-get install prosody -y &&
